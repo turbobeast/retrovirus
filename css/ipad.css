@@ -1,0 +1,195 @@
+#retro-virus-title { left: 11%; }
+
+#main-wrapper{
+	width: 740px;
+	height: 950px;
+}
+
+#nano-blurry { left: 490px;  top: 20px;}
+
+#rvi-inner , #msi-inner{
+	top: 155px;
+	left: 85px;
+	
+}
+
+#end-screen, #multi-choice, #success-screen, #shared-screen, #ms-success {
+	width: 640px;
+	margin: 0 auto;
+	border: solid green 1px;
+}
+/* success screen */
+#success-title {  left: 100px; }
+#success-message {left: 100px; }
+#triumph {  left: 100px;} 
+#gotomultichoice { left: 187px; }
+/* end screen */
+#end-title {  left: 100px;}
+#share-title { left: 100px;}
+#top-message { left: 100px; }
+#bottom-message { position: absolute; top: 652px; left: 40px;}
+#playagain { left: 100px; }
+#share { left: 393px; }
+/* diagram */
+#diagram {
+	left: 100px;
+}
+/*jobs cta */
+
+#jobs-cta {
+	width: 120%;
+	left: -30px;
+	height: 120px;
+	top: 820px;
+}
+
+#jobs-cta a {
+	left: 560px;
+	top: 26px;
+}
+
+#jobs-cta p {
+	width: 420px;
+	top: 30px;
+	left: 130px;
+}
+/* share pop up */
+#share-inner {
+	top: 300px;
+	left: 75px;
+}
+
+/* ms success screen */
+#ms-success-title { position: absolute; top: 60px; color: #fff; font-size: 46pt; width: 300px; left: 100px; }
+#ms-success-message { position: absolute; top: 170px; left: 100px; color: white; font-size: 14pt; width: 560px; }
+#ms-continue { position: absolute; top: 595px; left: 155px; width: 337px; height: 115px; background: url('../images/continue_button.jpg'); box-shadow: 0px 0px 12px #333;}
+
+#mad-scientist-start { position: absolute; top: 600px; left: 100px; width: 144px; height: 119px; background: url('../images/replay_btn.jpg'); box-shadow: 0px 0px 12px #333;}
+#share-game { position: absolute; top: 600px; left: 300px; width: 144px; height: 119px; background: url('../images/share_btn.jpg'); box-shadow: 0px 0px 12px #333;}
+#game-start {position: absolute; top: 600px; left: 495px; width: 144px; height: 119px; background: url('../images/retro_btn.jpg'); box-shadow: 0px 0px 12px #333;}
+
+/* shared screen */
+#shared-title { left: 100px; }
+#shared-message { left: 100px; }
+#gotogame {  left: 200px; }
+
+/* game ui */
+
+#save_btn { top: 745px; left: 600px; } 
+#reset_btn { top: 745px; left: 10px; }
+
+
+@media screen and (min-width: 940px) { 
+
+	#main-wrapper{ width: 960px; height: 680px;}
+	/* SPLASH SCREEN */
+	#nano-blurry { position: absolute; top: -250px; left: 620px; }
+	#retro-virus-title { position: absolute; top: 180px; left: 115px;}
+	/*#splash-pill { position: absolute; top: 425px; left: 865px;}
+	#splash-amoeba { position: absolute; top: 95px; left: 590px;}
+	#splash-border { position: absolute; top: 650px; left: 35px; }*/
+	#intro-type {
+		width: 360px;
+		top: 360px;
+		left: 40px;
+		text-align: left;
+		color: white;
+		position: absolute;
+	}
+	#begin-experiment  { top: 360px; left: 210px; }
+	/* END SCREEN */
+	#end-title { top: 138px; left: 400px;}
+	#top-message { top: 253px; left: 400px; width: 240px;}
+	#playagain {  top: 180px; left: 700px; }
+
+	#share-title { top: 302px;  left: 400px;}
+	#bottom-message {  top: 415px; left: 400px;}
+	#share { top: 360px; left: 700px; }
+
+	/* SUCCESS SCREEN */
+	#success-title { top: 175px; left: 485px; }
+	#success-message { top: 295px; left: 485px; width: 500px;}
+	#triumph { position: absolute; top: 165px; left: -20px;} 
+	#gotomultichoice { top: 405px; left: 480px; }
+
+	/* MULTI SCREEN */
+	#ms-title { position: absolute; top: 35px; color: #00566e; font-size: 36pt; width: 350px; left: 120px; }
+	#ms-message { position: absolute; top: 127px; left: 120px; color: white; font-size: 20px; width: 550px; }
+	#mad-scientist-start {top: 65px; left: 710px; }
+	#mad-border { left: 120px; top: 195px; width: 600px;}
+
+	#share-title2 {position: absolute; top: 173px; color: #00566e; font-size: 36pt; width: 300px; left: 120px; }
+	#share-message { position: absolute; top: 263px; left: 120px; color: white; font-size: 20px; width: 550px; }
+	#share-game { top: 200px; left: 710px; }
+	#share-border { left: 120px; top: 330px; width: 600px;} 
+
+	#retro-title { position: absolute; top: 310px; color: #00566e; font-size: 36pt; width: 300px; left: 120px;  }
+	#retro-message { position: absolute; top: 400px; left: 120px; color: white; font-size: 20px; width: 550px; }
+	#game-start { top: 335px; left: 710px; }
+	#retro-border {left: 120px; top: 475px; width: 600px;}
+
+	/* MS-SUCCESS SCREEN */
+	#ms-success-title { top: 140px; width: 300px; left: 410px; }
+	#ms-success-message { top: 250px; left: 410px; font-size: 14pt; width: 235px; }
+	#ms-continue {  top: 290px; left: 420px; }
+
+	#ms-title { position: absolute; top: 115px; left: 120px; }
+	#ms-message { position: absolute; top: 207px; left: 120px; }
+
+	#mad-scientist-start {top: 145px; left: 760px; }
+	#share-game { top: 280px; left: 760px; }
+	#game-start { top: 415px; left: 760px; }
+
+
+	/* SHARED SCREEN */
+	#shared-title { top: 140px; width: 300px; left: 420px; }
+	#shared-message {top: 250px; left: 420px; font-size: 14pt; width: 500px;  }
+	#gotogame { top: 360px; left: 420px; }
+
+	/* JOBS CTA */
+	#jobs-cta {
+		width: 120%;
+		height: 90px;
+		top: 590px;
+		left: -34px;
+	}
+	#jobs-cta p {
+		width: 780px;
+		font-size: 13pt;
+		left: 80px;
+		top: 34px;
+	}
+	#jobs-cta a {
+		left: 840px;
+		top: 20px;
+	}
+
+	/* SHARE */
+	#share-inner , #rvi-inner  {
+		top: 230px;
+		left: 190px;
+	}
+
+
+	/* DIAGRAM */
+	#diagram {
+		width: 341px;
+		top: 180px;
+		left: 30px;
+	}
+
+	#mutation-text {
+		top: 90px;
+	}
+	#empty-bar , #full-bar { top: 85px;  }
+
+	#rvi-inner , #msi-inner { top: 54px; left: 200px; }
+	#avoid-graphic { top: 120px; }
+
+	#readytogo { top: 400px; }
+
+	/* game ui */
+	#save_btn { top: 545px; left: 850px;} 
+	#reset_btn { top: 545px; }
+
+}

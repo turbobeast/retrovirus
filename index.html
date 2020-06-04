@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>retrovirus</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57x57.png" />
+<link rel="shortcut icon" href="images/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-startup-image" href="images/startup-splash.jpg" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=.5, maximum-scale=.5" />
+<style>
+	@import url('css/falling.css');
+	@media screen and (min-width: 641px) {
+
+		.centerwrap {
+			position: absolute;
+			height: 302px;
+			margin-top: -181px;
+			top: 50%;
+			width: 370px;
+			margin-right: 0;
+			right: 1.5%;
+
+		}
+
+		.triplebtns, .endbuttonwrap {
+			width: 110%;
+		}
+		.triplebtns img {
+			width: 30%;
+		}
+		.endbuttonwrap img {
+			width: 45%;
+		}
+		.endbuttonwrap {
+			bottom: 0%;
+		}
+
+		#diagram {
+			margin-left:0;
+			left: 2%;
+		}
+		.page {
+			position: absolute;
+			width: 100%;
+			/*width: 960px;*/
+			/*margin-left: -480px;
+			left: 50%;*/
+			height: 100%;
+		}
+
+		#jobs-cta {
+			height: 15%;
+		}
+		#playagain {
+			margin-right: 0;
+		}
+		#gotogame {
+			right: 2%;
+			margin-right: 0;
+		}
+	}/* closes media query */
+</style>
+<script>
+var iPad,
+addiPadStylesheet;
+iPad = (function(){
+		var agent = navigator.userAgent.toLowerCase(),
+		val = false;
+		if( (agent.search("ipad") > -1) ) {
+			val = true;
+		} else {
+			val = false;
+		}
+			return val;
+		}());
+addiPadStylesheet = function () {
+	var sheet = document.createElement('link'),
+	styleTag = document.getElementsByTagName('style')[0];
+	sheet.type = 'text/css';
+	sheet.rel = 'stylesheet';
+	sheet.href = 'css/ipad.css';
+	//styleTag.parentNode.insertBefore(sheet,styleTag.nextSibling);
+
+};
+if(iPad === true ) {
+	addiPadStylesheet();
+}
+</script>
+<script type="text/javascript">
+//UA-32813003-1
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32813003-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '392651687447954', // App ID
+      //channelUrl : '//iphone.stonecanoe.ca/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional initialization code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+<!-- the game -->
+<!-- the game -->
+<!-- the game -->
+<canvas id="canvas" width="200" height="200"></canvas>
+
+<div id="empty-bar"></div>
+<div id="full-bar"></div>
+<div id="mutation-text">MUTATION LEVEL</div>
+
+<div id="glare"></div>
+<img id="save_btn" src="images/save_btn.png" alt="save" />
+<img id="reset_btn" src="images/reset_btn.png" alt="reset" />
+<!-- menu screens -->
+<!-- menu screens -->
+<!-- menu screens -->
+<div id="main-wrapper">
+		<!-- end screen -->
+		<!-- end screen -->
+		<!-- end screen -->
+		<div class="page" id="end-screen">
+			<div class="centerwrap">
+				<h1 id="end-title" class="supertitle">Fail!</h1>
+				<p id="top-message" class="uppermessage">Dr. Nano escaped total mutation but he's... not quite right. Try to save his human form.</p>
+
+				<div class="endbuttonwrap">
+					<a id="playagain"><img src="images/wide_replay_btn.jpg" alt="" /></a>
+					<a id="share"><img src="images/wide_share_btn.jpg" alt="" /></a>
+				</div>
+			</div>
+		</div>
+
+	    <!-- mad-scientist success -->
+	    <!-- mad-scientist success -->
+	    <!-- mad-scientist success -->
+	    <div class="page" id="ms-success">
+	    	<div class="centerwrap">
+		    	<h1 id="ms-success-title" class="supertitle">It's alive!</h1>
+		    	<p id="ms-success-message" class="uppermessage">You're clearly quite experienced as a mutator. Look at that exquisite freak. Continue on to try again, share the game or return to Retrovirus.</p>
+
+	    	<!-- <a href="#" id="ms-continue"></a> -->
+		    	<div class="triplebtns">
+			    	<a id="mad-scientist-start"><img src="images/ms_play_button.jpg" alt="mad scientist start" /></a>
+			    	<a id="share-game"><img src="images/share_button.jpg" alt="" /></a>
+			    	<a id="game-start"><img src="images/replay_button.jpg" alt-"" /></a>
+		    	</div>
+	    	</div>
+	    </div>
+
+	    <!-- success -->
+	    <!-- success -->
+	    <!-- success -->
+	    <div class="page" id="success-screen">
+		    <img id="triumph" src="images/success_pose.jpg" alt="booya!" />
+
+		    <div class="scstitle">
+		    	<h1 id="success-title" class="supertitle">Success!</h1>
+		    	<p id="success-message" class="uppermessage">Your science skills saved Dr. Nano. You've earned the keys to the lab and unlocked Mad Scientist Mode. It's time to get freaky.</p>
+		    </div>
+		    <!-- <div class="centerwrap multibtn"> -->
+		    	<a id="gotomultichoice" href="#"><img src="images/madscience_btn.jpg" alt="gotomultichoice" /></a>
+	    	<!-- </div> -->
+	    </div>
+
+	    <!-- shared-screen -->
+	    <!-- shared-screen -->
+	    <!-- shared-screen -->
+		    <div class="page" id="shared-screen">
+		    	<div class="centerwrap">
+		    	<h1 id="shared-title" class="supertitle">It's alive!</h1>
+		    	<p id="shared-message" class="uppermessage">A mutation this severe is clearly the work of an unstable individual.</p>
+		    </div>
+		    	<a id="gotogame" href="#"><img src="images/continue_button.jpg" alt="continue" /></a>
+		    </div>
+
+	<!-- </div> inner wrap -->
+	<!-- diagram -->
+	<!-- diagram -->
+	<!-- diagram -->
+	<div id="diagram">
+		<canvas id="diagramcanvas" width="366" height="322"></canvas>
+	</div>
+
+
+	<!-- share pop-up -->
+	<!-- share pop-up -->
+	<!-- share pop-up -->
+	<!-- share pop-up -->
+	<div class="page" id="share-popup">
+		<div id="share-shade" class="shade"></div>
+		<div id="share-inner">
+			<a id="facebook-share"></a>
+			<a id="twitter-share"></a>
+			<a id="close-share"></a>
+		</div>
+	</div>
+
+	<!-- ms instruction pop-up -->
+	<!-- ms instruction pop-up -->
+	<!-- ms instruction pop-up -->
+	<div class="popup" id="msi-popup">
+		<!-- <div id="msi-shade" class="shade"></div>-->
+		<div id="msi-inner">
+			<img id="msi-graphic" src="images/msi-graphic.jpg" />
+			<div class="msgwrap">
+				<h1 id="msi-title">Make a freak.</h1>
+				<p id="msi-message">See all the crazy mutations.</p>
+			</div>
+				<a id="getfreaky" href="#"><img src="images/attack_btn.jpg" alt="" /></a>
+		</div>
+	</div>
+
+	<!-- jobs cta -->
+	<!-- jobs cta -->
+	<!-- jobs cta -->
+	<div id="jobs-cta"><p>like us on <a href="http://www.facebook.com/stonecanoe" target="_blank">facebook</a></div>
+		<!-- splash screen -->
+		<!-- splash screen -->
+		<!-- splash screen -->
+		<div id="splash-screen">
+			<img id="nano-blurry" src="images/nano_tube.jpg" alt="scotee nano" />
+			<div class="titewrap">
+				<img id="retro-virus-title" src="images/retrovirus_title.png" alt="retro-virus"/>
+				<a class="short-button" id="begin-experiment" href="#"><img src="images/start_btn.jpg" alt="" /></a>
+			</div>
+	    </div>
+	<!-- rv instruction pop-up -->
+	<!-- rv instruction pop-up -->
+	<!-- rv instruction pop-up -->
+	<div id="rvi-popup">
+		<!-- <div class="shade">&nbsp;</div> -->
+		<div id="rvi-inner">
+			<img id="avoid-graphic" src="images/avoid-graphic.jpg" />
+			<div class="msgwrap">
+				<h1 id="avoid-title">Avoid viruses.</h1>
+				<p id="avoid-message">Pills will help.</p>
+			</div>
+
+			<a id="readytogo" href="#"><img src='images/ready_btn.jpg' alt="get to the top" /></a>
+		</div>
+	</div>
+
+
+</div><!-- main wrapper -->
+<!-- LOADER -->
+<!-- LOADER -->
+<!-- LOADER -->
+<div id="loadscreen"><img id="throbber" src="images/throbbing-logo.gif" alt="loading" /></div>
+<script>
+var javascriptMutationArray = {
+	head : {},
+	torso : {},
+	thigh : {},
+	bicep : {},
+	calf_left : {},
+	calf_right : {},
+	forearm_left : {},
+	forearm_right : {}
+},
+creatingAMonster = false,
+creatureArray = ['chicken',
+					'skeleton',
+					'bodybuilder',
+					'burlesque',
+					'octopus',
+					'duck',
+					'vanillaice',
+					'poop',
+					'cyclops',
+					'macaroni',
+					'computer',
+					'ninja',
+					'meta',
+					'girl',
+					'lumberjack',
+					'robot',
+					'bagel',
+					'scientist'];
+
+</script>
+<script src="js/Box2dWeb-2.1.a.3.min.js"></script>
+<script src="js/falling.js"></script>
+<script>
+/*var joblinker;
+joblinker = document.getElementById('job-linker');
+multiverse.eventlistener('touchstart', joblinker, function(evt) {
+	var msg = document.createEvent('Event');
+	msg.initEvent('gotojobspage', true, true, window);
+	joblinker.dispatchEvent(msg);
+	multiverse.cancelevent(evt);
+});*/
+</script>
+</body>
+</html>
